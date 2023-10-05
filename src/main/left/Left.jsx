@@ -1,11 +1,11 @@
 import React from "react";
 import Advertising from "./Advertising";
 import Topics from "./Topics";
-import './Left.css';
+import c from './Left.module.css';
 
 const Left = () => {
     return (
-        <div className="left_block">
+        <div className={c.left_block}>
             <Topics />
             <Advertising />
         </div>

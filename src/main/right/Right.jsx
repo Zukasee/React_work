@@ -12,10 +12,10 @@ function Right() {
       <div className='right_block'>
         <p className='top_text'>Билеты в кино </p>
         <div className='slider'>
-            <Moon />
-            <Barbie />
-            <Oppengamer />
-            <Povelitel_vetra />
+            <Moon rate='90%'/>
+            <Barbie rate='6.7'/>
+            <Oppengamer rate='8.5'/>
+            <Povelitel_vetra rate='6.3'/>
         </div>        
       </div>
     );
