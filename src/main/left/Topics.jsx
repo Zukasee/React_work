@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import c from './Topics.module.css';
+import { Link } from 'react-router-dom';
 
 function Topics() {
     return (
@@ -11,7 +12,7 @@ function Topics() {
         </div>
         <div className={c.topic_block}>
           <img className={c.ticket_pic} src='https://cdn-icons-png.flaticon.com/128/175/175613.png'></img>
-          <p className={c.topic_text}>Билеты в кино</p>
+          <Link to="/main"><p className={c.topic_text}>Билеты в кино</p></Link>
         </div>
         <div className={c.topic_block}>
           <img className={c.media_pic} src='https://cdn-icons-png.flaticon.com/128/7862/7862020.png'></img>
