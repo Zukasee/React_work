@@ -12,22 +12,17 @@ const Dialog = (prop) => {
     )
 }
 
-let dialogsData = [
-        {id: 1, name: 'Kirill admin'},
-        {id: 2, name: 'Vika seller'}
-    ]
-
-let dialogsElements = dialogsData.map( dial => <Dialog id={dial.id} name={dial.name}/>);
-
 const Message = (prop) => {
     return (
-        <div className="p.message">
-            {prop.message}
+        <div className={p.message}>
+            {prop.text}
         </div>
     )
 }
 
-const Help = () => {
+const Help = (prop) => {
+    let dialogsElements = prop.dialogs.map( dial => <Dialog id={dial.id} name={dial.name}/>);
+    let messagesElement = prop.messages.map( mess => <Message id={mess.id} text={mess.text} />)
 
     return (
         <div className={p.centre}>      
@@ -35,9 +30,7 @@ const Help = () => {
                 {dialogsElements}
             </div>
             <div className={p.messages}>
-                <Message message="hi"/>
-                <Message message="How are you?"/>
-                <Message message="bb"/>
+                {messagesElement}
             </div>
         </div>        
     )
