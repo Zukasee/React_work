@@ -4,11 +4,12 @@ import Main from './main/Main.jsx';
 import Help from './help/Help.jsx';
 import Left from './main/left/Left';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import state, { addMessage } from './redux/state';
 
 
 function App(props) {
    let MainComponent = () => <Main/>
-   let HelpComponent = () => <Help dialogs={props.dialogs} messages={props.messages}/>
+   let HelpComponent = () => <Help dialogs={state.dialogsData} messages={state.messagesData} addMessage={addMessage}/>
 
    return (
       <BrowserRouter>

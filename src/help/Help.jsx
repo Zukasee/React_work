@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import p from './Help.module.css';
 import { Link } from "react-router-dom";
+import { getValue } from "@testing-library/user-event/dist/utils";
 
 const Dialog = (prop) => {
     let path = "/dialogs/" + prop.id;
@@ -21,8 +22,15 @@ const Message = (prop) => {
 }
 
 const Help = (prop) => {
-    let dialogsElements = prop.dialogs.map( dial => <Dialog id={dial.id} name={dial.name}/>);
-    let messagesElement = prop.messages.map( mess => <Message id={mess.id} text={mess.text} />)
+    const [text, setText] = useState(' ');
+
+    let dialogsElements = prop.dialogs.map( (dial) => <Dialog id={dial.id} name={dial.name}/>);
+    let messagesElement = prop.messages.map( (mess) => <Message id={mess.id} text={mess.text} />);
+
+    let addMessage = () => {    
+        prop.addMessage(text);
+        getValue.inputtext = ' '
+    }
 
     return (
         <div className={p.centre}>      
@@ -31,6 +39,8 @@ const Help = (prop) => {
             </div>
             <div className={p.messages}>
                 {messagesElement}
+                <input className={p.inputtext} value={text} onChange={event => setText(event.target.value)}></input>
+                <button onClick={addMessage}>send</button>
             </div>
         </div>        
     )
